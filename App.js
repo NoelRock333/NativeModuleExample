@@ -13,7 +13,7 @@ import Native, {
   Button
 } from 'react-native';
 
-console.log(Native.NativeModules.CalendarManager);  // ← add this line
+console.log(Native.NativeModules.ToastExample);  // ← add this line
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -25,10 +25,11 @@ const instructions = Platform.select({
 
 export default class App extends Component<{}> {
   fire = () => {
-    Native.NativeModules.CalendarManager.addEvent("One", "Two", 3, function(o) {
-      console.log("In Callback");
-      console.log(o);
-    });
+    // Native.NativeModules.CalendarManager.addEvent("One", "Two", 3, function(o) {
+    //   console.log("In Callback");
+    //   console.log(o);
+    // });
+    Native.NativeModules.ToastExample.show('Awesome', Native.NativeModules.ToastExample.SHORT);
   }
 
   render() {
