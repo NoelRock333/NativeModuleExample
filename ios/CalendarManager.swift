@@ -20,6 +20,10 @@ class CalendarManager: NSObject {
     callback([ret, NSNull()]) //La primera posición es una respuesta correcta y la segunda es un error
   }
   
+  open static func requiresMainQueueSetup() -> Bool {
+    return true;
+  }
+  
   func constantsToExport() -> [AnyHashable: Any]! {
     print("constantsToExport")
     return ["vatiable1": 1, "variable2": "dos"] // Estos datos son los que regresa el modulo por defecto
