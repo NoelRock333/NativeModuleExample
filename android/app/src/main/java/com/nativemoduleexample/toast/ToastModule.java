@@ -17,10 +17,6 @@ import com.facebook.react.bridge.WritableNativeMap;
  */
 
 public class ToastModule extends ReactContextBaseJavaModule {
-
-    private static final String DURATION_SHORT_KEY = "SHORT";
-    private static final String DURATION_LONG_KEY = "LONG";
-
     public ToastModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
@@ -32,9 +28,10 @@ public class ToastModule extends ReactContextBaseJavaModule {
 
     @Override
     public Map<String, Object> getConstants() {
+        // Estos datos son los que regresa el modulo por defecto
         final Map<String, Object> constants = new HashMap<>();
-        constants.put(DURATION_SHORT_KEY, Toast.LENGTH_SHORT);
-        constants.put(DURATION_LONG_KEY, Toast.LENGTH_LONG);
+        constants.put("variable1", 1);
+        constants.put("variable2", "dos");
         return constants;
     }
 
