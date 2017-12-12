@@ -5,15 +5,16 @@
  */
 
 import React, { Component } from 'react';
-import Native, {
+import {
   Platform,
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  NativeModules
 } from 'react-native';
 
-console.log(Native.NativeModules.ToastExample);  // ← add this line
+console.log(NativeModules);  // ← add this line
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -25,11 +26,14 @@ const instructions = Platform.select({
 
 export default class App extends Component<{}> {
   fire = () => {
-    // Native.NativeModules.CalendarManager.addEvent("One", "Two", 3, function(o) {
-    //   console.log("In Callback");
-    //   console.log(o);
-    // });
-    Native.NativeModules.ToastExample.show('Awesome', Native.NativeModules.ToastExample.SHORT);
+    if (Platform.OS == 'ios') {
+      NativeModules.CalendarManager.addEvent("One", "Two", 3, function(o) {
+        console.log("In Callback");
+        console.log(o);
+      });
+    } else {
+      NativeModules.ToastExample.show('Awesome', NativeModules.ToastExample.SHORT);
+    }
   }
 
   render() {
