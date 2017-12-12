@@ -26,7 +26,7 @@ class CalendarManager: NSObject {
   
   func constantsToExport() -> [AnyHashable: Any]! {
     print("constantsToExport")
-    return ["vatiable1": 1, "variable2": "dos"] // Estos datos son los que regresa el modulo por defecto
+    return ["variable1": 1, "variable2": "dos"] // Estos datos son los que regresa el modulo por defecto
   }
   
 }
