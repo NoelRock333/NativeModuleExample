@@ -32,7 +32,10 @@ export default class App extends Component<{}> {
         console.log(o);
       });
     } else {
-      NativeModules.ToastExample.show('Awesome', NativeModules.ToastExample.SHORT);
+      NativeModules.ToastExample.addEvent('Awesome', "Android", '5', function(o) {
+        console.log("In Callback");
+        console.log(o);
+      });
     }
   }
 
