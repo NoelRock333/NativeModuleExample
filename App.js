@@ -27,12 +27,14 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   fire = () => {
     if (Platform.OS == 'ios') {
+      console.log(NativeModules.CalendarManager);
       NativeModules.CalendarManager.addEvent("One", "Two", 3, function(o) {
         console.log("In Callback");
         console.log(o);
       });
     } else {
-      NativeModules.ToastExample.addEvent('Awesome', "Android", '5', function(o) {
+      console.log(NativeModules.ToastExample);
+      NativeModules.ToastExample.addEvent('Awesome', "Android", 5, function(o) {
         console.log("In Callback");
         console.log(o);
       });
