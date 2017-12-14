@@ -1,6 +1,7 @@
 package com.nativemoduleexample;
 
 import com.nativemoduleexample.toast.*;
+import com.nativemoduleexample.mymodules.*;
 
 import android.app.Application;
 
@@ -25,7 +26,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-          new ToastModulePackage()
+          new ToastModulePackage(),
+          new MyNativeMethodsPackage()
       );
     }
 
