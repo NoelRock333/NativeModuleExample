@@ -23,6 +23,11 @@ public class MyNativeMethods extends ReactContextBaseJavaModule {
     @ReactMethod
     public void calcAverage(ReadableArray data_array, Callback responseCallback) {
         int length = data_array.size();
-        responseCallback.invoke(length);
+        int total = 0;
+        for (int i = 0; i < length; i++) {
+            total += data_array.getInt(i);
+        }
+        int averange = total / length;
+        responseCallback.invoke(averange);
     }
 }
