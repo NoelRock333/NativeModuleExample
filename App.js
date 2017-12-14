@@ -26,19 +26,22 @@ const instructions = Platform.select({
 
 export default class App extends Component<{}> {
   fire = () => {
-    if (Platform.OS == 'ios') {
-      console.log(NativeModules.CalendarManager);
-      NativeModules.CalendarManager.addEvent("One", "Two", 3, function(o) {
-        console.log("In Callback");
-        console.log(o);
-      });
-    } else {
-      console.log(NativeModules.ToastExample);
-      NativeModules.ToastExample.addEvent('Awesome', "Android", 5, function(o) {
-        console.log("In Callback");
-        console.log(o);
-      });
-    }
+    NativeModules.MyNativeMethods.calcAverage([1,2,3,4,5,5], (result) => {
+      console.log(result)
+    });
+    // if (Platform.OS == 'ios') {
+    //   console.log(NativeModules.CalendarManager);
+    //   NativeModules.CalendarManager.addEvent("One", "Two", 3, function(o) {
+    //     console.log("In Callback");
+    //     console.log(o);
+    //   });
+    // } else {
+    //   console.log(NativeModules.ToastExample);
+    //   NativeModules.ToastExample.addEvent('Awesome', "Android", 5, function(o) {
+    //     console.log("In Callback");
+    //     console.log(o);
+    //   });
+    // }
   }
 
   render() {
